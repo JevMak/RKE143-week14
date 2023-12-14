@@ -29,15 +29,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 3px solid #5A4E4D; /* Color of the border */
+    border: 3px solid #5A4E4D;
     border-radius: 10px;
     opacity: 0; /* Initially hidden */
-    transition: opacity 1s ease-in-out 0.5s; /* Add a transition for opacity */
-    pointer-events: none; /* Ensure the border doesn't interfere with content */
+    transition: opacity 1s ease-in-out 0.5s;
+    pointer-events: none;
 }
 
 .container.image-loaded::before {
-    opacity: 1; /* Show the border after the image has loaded */
+    opacity: 1;
 }
 
 img {
