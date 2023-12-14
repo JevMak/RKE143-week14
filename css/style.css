@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: beige;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #5A4E4D; /* Color of the border */
+    border-radius: 10px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out 0.5s; /* Add a transition for opacity */
+    pointer-events: none; /* Ensure the border doesn't interfere with content */
+}
+
+.container.image-loaded::before {
+    opacity: 1; /* Show the border after the image has loaded */
+}
+
+img {
+    width: auto;
+    max-width: 100%; 
+    height: auto; 
+    max-height: 40vh; 
+    object-fit: contain; 
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    transform: scale(1.1);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.background-image.loaded {
+    opacity: 1;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        text-decoration: none;
+    }
+    50% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes underline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    color: #5A4E4D;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fall 1.5s ease-in-out forwards;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #5A4E4D;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: underline 1s ease-in-out 0.5s forwards;
+}
+
+
+p, li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+footer {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+a:hover {
+    color: #5A4E4D;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    p, li, footer {
+        font-size: 0.9rem; /* Slightly larger text for small screens */
+    }
+}
+
+
