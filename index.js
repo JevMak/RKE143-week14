@@ -31,7 +31,7 @@ async function getRandomRecipe() {
     recipeImage.src = imageUrl;
     recipeImage.onload = () => {
         backgroundImage.style.backgroundImage = `url(${imageUrl})`;
-        containerElement.classList.add('image-loaded'); // Add a class to indicate the image has loaded
+        containerElement.classList.add('image-loaded');
     };
     recipeNameTitle.innerHTML = recipeName;
     instructionsBlock.innerHTML = recipeInstructions;
